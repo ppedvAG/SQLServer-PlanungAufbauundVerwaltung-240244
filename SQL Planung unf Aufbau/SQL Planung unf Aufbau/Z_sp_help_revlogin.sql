@@ -19,7 +19,7 @@ sp_help_revlogin
 sp_help_revlogin
 
 
---Script
+--Scriptbeginn ab hier--------------
 USE [master]
   GO
   IF OBJECT_ID ('sp_hexadecimal') IS NOT NULL
