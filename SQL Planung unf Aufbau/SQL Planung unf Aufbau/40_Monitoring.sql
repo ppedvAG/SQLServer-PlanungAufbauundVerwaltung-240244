@@ -1,43 +1,23 @@
 --Überwachung
 
 /*
-aktuelles Problem
+++++++++++++aktuelles Problem+++++++++++++++
 
-Taskmanager
+
+1. Taskmanager
 mslaugh.exe teakids.exe
 ..ist es der SQL Server oder nicht
 
---es ist der SQL Server!!
-
-Taskmanager für den SQL Server:  Aktivitätsmonitor
+-->es ist der SQL Server!! dann 2.
 
 
-select * from sys.dm_os_wait_stats
+2. Taskmanager für den SQL Server:  Aktivitätsmonitor
 
-Wenn signal_time > 25% der gesamten DAuer ausmacht ==> CPU Problem
-Blöd: die Zeiten sind seit NEustart kummilierend!
-
-Seit wann läuft der Server?
-tempdb Erstellungszeit
-
-besser: alle wait_time addieren
-
-
-
---Monitoring
-
---live Problem
----- Reihenfolge für Monitoring
---1.  Taskmanager: Ausschluss andere Dinge (Anitvirentool, Viren, Trojaner..)
----    zB mslaugh.exe   teakids.exe mit Admin acount
---> nix gefunden...-->SQL Server 
-
---2 SQL Server genauer anschauen
--->   Aktivitätsmonitor  
 ----> Wartezustände.. worauf warten aktuell. innerhalb der letzten Sekunden bzw in der letzten Zeit
 -------> damit haben wir schon mal die Richtung , in der wir weitersehen müssen.
+---------> aktuelle Wartezeit der lezten Sekunde
 
---für genauere Infos: auch der Aktivitätsmonitor wertet Systemsichetn aus, wie zB:
+--für genauere Infos: auch der Aktivitätsmonitor wertet Systemsichten aus, wie zB:
 
 select * from sys.dm_os_wait_stats
 
@@ -47,6 +27,25 @@ select * from sys.dm_os_wait_stats
 
 --alle Sessions mit SID > 50 sind User (auch Agent)
 
+
+--weitere Auswertung: os_wait_stats
+
+Wenn signal_time > 25% der gesamten Dauer ==> CPU Problem
+Blöd: die Zeiten sind seit Neustart kummilierend!
+
+--> alle x min Messdaten sammeln und mit Zeitstempel speichern
+--> TSQL Aufgabe zb
+--> siehe Diagnostic Views
+
+Seit wann läuft der Server?  tempdb Erstellungszeit
+
+besser: alle wait_time addieren
+
+###################### Das Problem war...##########################
+--> Protokollierung
+
+--> SQL Server genauer anschauen
+-->   Aktivitätsmonitor  Kummulierte Wartezeit
 
 select * from sys.dm_os_wait_stats
 --eigtl müssten wir folgendes tun
@@ -62,6 +61,14 @@ LCK_M_S	   242	5894499	1855310	33    um 10 Uhr
 LCK_M_S	   242	5894499	1855310	33   um 10:10 
 LCK_M_S	   242	8745766	1855310	33  um 10:20
 
+
+
+
+--Monitoring
+
+
+
+
 --------------DMVs Data Management Views-------------
 -- siehe im Projekt Z_SQL_Server_2019_Diagnostic Information Queries.sql
 --eine ganze Sammlung von nützlichen DMvs
@@ -76,7 +83,10 @@ select * from sysprocesses --alle Prozesse der User haben ein SPID > 50
 
 ---per TSQL ----------------------------------------
 -- set statistics io, time on 
---sowie Abfragepläne
+--sowie Abfragepläne; wie geht der SQL Server vor
+
+--SCAN er muss alle Daten von a bis z durchscannen
+--SEEK er kann bestimmte Datensätze effektiv "herauspicken"
 
 --Diese bieten wertvolle Hinweise, erfordern aber aktives Monitoring
 set statistics io,time on

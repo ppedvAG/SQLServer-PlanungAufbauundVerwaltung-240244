@@ -136,11 +136,17 @@
           <AssociatedConnUserName />
           <FullPath>23_VerwaisteUser.sql</FullPath>
         </FileNode>
-        <FileNode Name="30_Monitoring.sql">
+        <FileNode Name="30 Indizes.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>30 Indizes.sql</FullPath>
+        </FileNode>
+        <FileNode Name="40_Monitoring.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BIGBEN:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>BIGBEN</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>30_Monitoring.sql</FullPath>
+          <FullPath>40_Monitoring.sql</FullPath>
         </FileNode>
         <FileNode Name="instnwnd.sql">
           <AssociatedConnectionMoniker />
@@ -148,17 +154,11 @@
           <AssociatedConnUserName />
           <FullPath>instnwnd.sql</FullPath>
         </FileNode>
-        <FileNode Name="Recap_tag1.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
-          <AssociatedConnUserName />
-          <FullPath>Recap_tag1.sql</FullPath>
-        </FileNode>
-        <FileNode Name="SQLQuery1.sql">
+        <FileNode Name="Recap Tag 1.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BIGBEN:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>BIGBEN</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>SQLQuery1.sql</FullPath>
+          <FullPath>Recap Tag 1.sql</FullPath>
         </FileNode>
         <FileNode Name="Z_06_TemporalTables_1_Aktivieren.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:BIGBEN:True</AssociatedConnectionMoniker>
@@ -171,6 +171,12 @@
           <AssociatedConnSrvName>BIGBEN</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Z_06_TemporalTables_2_Demo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Z_Fehlende Indizes.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Z_Fehlende Indizes.sql</FullPath>
         </FileNode>
         <FileNode Name="Z_Ola Hallengren.sql">
           <AssociatedConnectionMoniker />
@@ -201,6 +207,12 @@
           <AssociatedConnSrvName>BIGBEN</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>Z_SQL Server 2022 Diagnostic Information Queries.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Z_Überflüssige Indizes finden.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Z_Überflüssige Indizes finden.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
